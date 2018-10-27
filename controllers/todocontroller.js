@@ -14,8 +14,11 @@ module.exports=function(index){
 		res.json(data);
 	});
 	
-	index.delete('/todo',function(req,res){
-		
+	index.delete('/todo/:item',function(req,res){
+		data.filter(function(todo){
+			todo.item.replace(/ /g,'-')!==req.params.item;
+		});
+		res.json(data);
 	});
 	
 };
